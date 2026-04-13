@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StreamBox</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="logo">Stream<span>Box</span></div>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search videos"
+        aria-label="Search videos"
+      />
+    </header>
+
+    <main>
+      <section id="homeView" class="view active">
+        <h1>Recommended</h1>
+        <div id="videoGrid" class="video-grid"></div>
+      </section>
+
+      <section id="playerView" class="view">
+        <button id="backButton" class="ghost-btn">← Back to Home</button>
+        <div class="player-layout">
+          <article class="main-player">
+            <video id="videoElement" class="video-element" poster="" preload="metadata"></video>
+            <div class="video-controls">
+              <button id="playPauseBtn" class="accent-btn">Play</button>
+              <label class="volume-wrap">
+                Volume
+                <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="1" />
+              </label>
+              <button id="fullscreenBtn" class="ghost-btn">Fullscreen</button>
+            </div>
+            <h2 id="playerTitle"></h2>
+            <p id="playerChannel" class="channel"></p>
+            <div class="engagement-row">
+              <button id="likeBtn" class="ghost-btn">👍 Like (<span>0</span>)</button>
+              <button id="dislikeBtn" class="ghost-btn">👎 Dislike (<span>0</span>)</button>
+            </div>
+
+            <section class="comments">
+              <h3>Comments</h3>
+              <form id="commentForm">
+                <input id="commentInput" type="text" placeholder="Add a public comment..." required />
+                <button type="submit" class="accent-btn">Comment</button>
+              </form>
+              <ul id="commentList"></ul>
+            </section>
+          </article>
+
+          <aside>
+            <h3>Up next</h3>
+            <div id="recommendedList" class="recommended-list"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
